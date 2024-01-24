@@ -14,13 +14,13 @@ const db =  mysql.createConnection({
 })
 
 app.post('/signup', (req, res) => {
-    const sql = "INSERT INTO login (name, email, password, mobile, city) VALUES (?)";
+    const sql = "INSERT INTO login (name, email, password) VALUES (?)";
     const values = [
         req.body.name,
         req.body.email,
         req.body.password,
-        req.body.mobile,
-        req.body.city
+       // req.body.mobile,
+       // req.body.city
     ]
     db.query(sql, [values], (err, data) => {
         if(err) {
