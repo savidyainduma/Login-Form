@@ -30,6 +30,20 @@ function Validation (values) {
         error.password = ""
     }
 
+    if(values.mobile == '') {
+        error.mobile = "Phone Number should not be empty"
+    }
+    else {
+        error.mobile = ""
+    }
+
+    if(values.city == '') {
+        error.city = "City should not be empty"
+    }
+    else {
+        error.city = ""
+    }
+
     return error;
 
 }

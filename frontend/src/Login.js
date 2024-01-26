@@ -33,8 +33,10 @@ function Login() {
 
   return (
     <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
-        <div className='bg-white p-3 rounded w-25'> 
-            <form action='' onSubmit={handleSubmit}>
+        <div className='bg-white p-3 rounded w-25 border p-4'> 
+        
+            <form action='' onSubmit={handleSubmit} className='border p-4 border-black rounded'>
+            <h2>Sign-In</h2>
                 <div className='mb-3'>
                     <label htmlFor='email'><strong>Email</strong></label>
                     <br/>
@@ -51,7 +53,7 @@ function Login() {
                 </div>
                 <button type='submit' className='btn btn-success btn-default border w-100 rounded-0'>Login</button>
                 <p>You agree to our terms and policies.</p>
-                <Link to='/signup' className='btn btn-default border w-100 rounded-0 text-decoration-none'>Create Account</Link>
+                <Link to='/signup' className='btn btn-default border w-100 rounded-0 text-decoration-none btn-outline-secondary'>Create Account</Link>
             </form>
         </div>
     </div>

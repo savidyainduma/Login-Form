@@ -14,20 +14,32 @@ const db =  mysql.createConnection({
 })
 
 app.post('/signup', (req, res) => {
-    const sql = "INSERT INTO login (name, email, password) VALUES (?)";
+    console.log("Received data from client:", req.body);
+   // const sql = "INSERT INTO login (name, email, password, mobile, city) VALUES (?, ?, ?, ?, ?)";
+
+    const sql = `INSERT INTO login (name, email, password, mobile, city) VALUES ('${req.body.name}','${req.body.email}','${req.body.password}','${req.body.mobile}','${req.body.city}')`
     const values = [
         req.body.name,
         req.body.email,
         req.body.password,
-       // req.body.mobile,
-       // req.body.city
+        req.body.mobile,
+        req.body.city
     ]
-    db.query(sql, [values], (err, data) => {
-        if(err) {
-            return res.json("Error");
-        }
-        return res.json(data);
+
+ 
+    //console.log("Values array:", values);
+    // db.query(sql, [values], (err, data) => {
+      //   if(err) {
+     //        return res.json("Error");
+     //  }
+     //   return res.json(data);
+    // })
+
+    db.query(sql,(err, result)=>{
+        if(err) return res.json(err);
+        return res.json(result);
     })
+
 })
 
 app.post('/login', (req, res) => {
